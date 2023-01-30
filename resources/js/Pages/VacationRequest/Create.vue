@@ -149,12 +149,12 @@ async function refreshAvailableTypes(user) {
 </script>
 
 <template>
-  <InertiaHead title="Złóż wniosek" />
+  <InertiaHead title="Dodaj wniosek" />
   <div :class="[stats.limit > 0 ? ' grid grid-cols-1 gap-4 items-start xl:grid-cols-3 xl:gap-8' : 'mx-auto w-full max-w-7xl']">
     <div class="flex flex-col h-full bg-white shadow-md xl:col-span-2">
       <div class="p-4 sm:px-6">
         <h2 class="text-lg font-medium leading-6 text-gray-900">
-          Złóż wniosek
+          Dodaj wniosek
         </h2>
       </div>
       <form
@@ -359,7 +359,6 @@ async function refreshAvailableTypes(user) {
                   id="date_from"
                   v-model="form.from"
                   :config="fromInputConfig"
-                  placeholder="Wybierz datę"
                   class="block w-full max-w-lg rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors.from, 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors.from }"
                   @on-change="onFromChange"
@@ -384,7 +383,6 @@ async function refreshAvailableTypes(user) {
                   id="date_to"
                   v-model="form.to"
                   :config="toInputConfig"
-                  placeholder="Wybierz datę"
                   class="block w-full max-w-lg rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors.to, 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors.to }"
                   @on-change="onToChange"
@@ -412,6 +410,9 @@ async function refreshAvailableTypes(user) {
                 class="block text-sm font-medium text-gray-700"
               >
                 Komentarz
+                <span class="text-xs text-gray-500">
+                  (opcjonalny)
+                </span>
               </label>
               <div class="mt-1 sm:col-span-2 sm:mt-0">
                 <textarea
@@ -461,7 +462,7 @@ async function refreshAvailableTypes(user) {
                 :disabled="form.processing || !isDirty"
                 data-cy="save-button"
               >
-                Zapisz
+                Dodaj
               </button>
             </div>
           </div>
@@ -478,7 +479,7 @@ async function refreshAvailableTypes(user) {
             Dane urlopowe dla: {{ form.user.name }}
           </span>
           <span v-else>
-            Twoje dane o urlopie
+            Moje dane o urlopie
           </span>
         </h2>
       </div>
