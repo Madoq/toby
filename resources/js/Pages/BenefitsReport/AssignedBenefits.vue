@@ -257,6 +257,7 @@ function isBenefitHasCompanion(benefitId) {
               v-for="(item, index) in form.items"
               :key="item.user.id"
               class="group hover:bg-blumilk-25 divide-x divide-gray-300"
+              data-cy="grid-name"
             >
               <th class="group p-2 sticky left-0 outline outline-1 outline-offset-0 outline-gray-300 bg-white hover:bg-blumilk-25 group-hover:bg-blumilk-25">
                 <div class="flex justify-start items-center">
@@ -286,6 +287,7 @@ function isBenefitHasCompanion(benefitId) {
                     class="w-full h-full sm:text-sm appearance-none border-none text-right p-0 px-3 m-0 ring-inset hover:bg-blumilk-25 group-hover:bg-blumilk-25  focus:bg-blumilk-25 focus:ring-2 focus:ring-blumilk-300"
                     title="Wprowadź kwotę."
                     min="0"
+                    data-cy="grid-employer"
                   >
                 </td>
                 <td style="height: 40px">
@@ -297,16 +299,18 @@ function isBenefitHasCompanion(benefitId) {
                     class="w-full h-full sm:text-sm appearance-none border-none text-right p-0 px-3 m-0 ring-inset hover:bg-blumilk-25 group-hover:bg-blumilk-25 focus:bg-blumilk-25 focus:ring-2 focus:ring-blumilk-300"
                     title="Wprowadź kwotę."
                     min="0"
+                    data-cy="grid-employee"
                   >
                 </td>
               </template>
               <td>
-                <div class="w-full sm:text-sm focus:ring-white m-0 text-right p-3">
+                <div class="w-full sm:text-sm focus:ring-white m-0 text-right p-3" data-cy="grid-sum">
                   {{ calculateSumOfBenefits(item.benefits) }}
                 </div>
               </td>
               <td
                 class="px-0.5 ring-inset hover:bg-blumilk-25 focus-within:bg-blumilk-25 ring-blumilk-300 focus-within:ring-2"
+                data-cy="emplyer-cost"
               >
                 <TextArea
                   v-model="item.comment"

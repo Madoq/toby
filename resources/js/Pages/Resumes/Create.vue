@@ -130,6 +130,7 @@ function submitResume() {
               <div class="relative mt-2">
                 <ListboxButton
                   class="relative py-2 pr-10 pl-3 w-full max-w-md h-10 text-left bg-white rounded-md border border-gray-300 focus:border-blumilk-500 focus:outline-none focus:ring-1 focus:ring-blumilk-500 shadow-sm cursor-default sm:text-sm"
+                  data-cy='users-listbox-button'
                 >
                   <span v-if="form.user === null">
                     Nie istnieje w bazie
@@ -164,6 +165,7 @@ function submitResume() {
                     >
                       <li
                         :class="[active ? 'bg-gray-100' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-3 pr-9']"
+                        data-cy='users-listbox-list'
                       >
                         <div class="flex items-center">
                           Nie istnieje w bazie
@@ -241,6 +243,7 @@ function submitResume() {
           add-label="Dodaj szkołę"
           @add-item="addEducation"
           @remove-item="(index) => form.educations.splice(index, 1)"
+          data-cy='add-school'
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('education', index)">
@@ -259,6 +262,7 @@ function submitResume() {
                   type="text"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`education.${index}.school`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`education.${index}.school`] }"
+                  data-cy='school-name'
                 >
                 <p
                   v-if="form.errors[`education.${index}.school`]"
@@ -278,6 +282,7 @@ function submitResume() {
                   type="text"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`education.${index}.degree`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`education.${index}.degree`] }"
+                  data-cy='school-degree'
                 >
                 <p
                   v-if="form.errors[`education.${index}.degree`]"
@@ -297,6 +302,7 @@ function submitResume() {
                   type="text"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`education.${index}.fieldOfStudy`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`education.${index}.fieldOfStudy`] }"
+                  data-cy='school-fieldofstudy'
                 >
                 <p
                   v-if="form.errors[`education.${index}.fieldOfStudy`]"
@@ -315,6 +321,7 @@ function submitResume() {
                   v-model="element.startDate"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`education.${index}.startDate`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`education.${index}.startDate`] }"
+                  data-cy='school-start-date'
                 />
                 <p
                   v-if="form.errors[`education.${index}.startDate`]"
@@ -343,6 +350,7 @@ function submitResume() {
                     :disabled="element.current"
                     class="block w-full rounded-md shadow-sm sm:text-sm disabled:bg-gray-100"
                     :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`education.${index}.endDate`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`education.${index}.endDate`] }"
+                    data-cy='school-end-date'
                   />
                 </div>
                 <p
@@ -361,6 +369,7 @@ function submitResume() {
           add-label="Dodaj język"
           @add-item="addLanguage"
           @remove-item="(index) => form.languages.splice(index, 1)"
+          data-cy='add-language'
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('languages', index)">
@@ -387,6 +396,7 @@ function submitResume() {
                     :id="`language-${index}-level`"
                     v-model="element.name"
                     :items="languages"
+                    data-cy="language"
                   />
                   <p
                     v-if="form.errors[`languages.${index}.name`]"
@@ -407,6 +417,7 @@ function submitResume() {
                   <LevelPicker
                     v-model.number="element.level"
                     :levels="languageLevels"
+                    data-cy="language-level"
                   />
                   <p
                     v-if="form.errors[`languages.${index}.level`]"
@@ -425,6 +436,7 @@ function submitResume() {
           add-label="Dodaj technologię"
           @add-item="addTechnology"
           @remove-item="(index) => form.technologies.splice(index, 1)"
+          data-cy="add-technologies"
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('technologies', index)">
@@ -451,6 +463,7 @@ function submitResume() {
                     :id="`technology-${index}-level`"
                     v-model="element.name"
                     :items="technologies"
+                    data-cy="technology"
                   />
                   <p
                     v-if="form.errors[`technologies.${index}.name`]"
@@ -471,6 +484,7 @@ function submitResume() {
                   <LevelPicker
                     v-model.number="element.level"
                     :levels="technologyLevels"
+                    data-cy="technology-level"
                   />
                   <p
                     v-if="form.errors[`technologies.${index}.level`]"
@@ -489,6 +503,7 @@ function submitResume() {
           add-label="Dodaj projekt"
           @add-item="addProject"
           @remove-item="(index) => form.projects.splice(index, 1)"
+          data-cy="add-project"
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('projects', index)">
@@ -511,6 +526,7 @@ function submitResume() {
                   rows="5"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`projects.${index}.description`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`projects.${index}.description`] }"
+                  data-cy="project-text"
                 />
                 <p
                   v-if="form.errors[`projects.${index}.description`]"
@@ -532,6 +548,7 @@ function submitResume() {
                   :id="`project-technologies-${index}`"
                   v-model="element.technologies"
                   :items="technologies"
+                  data-cy="project-technology"
                 />
                 <p
                   v-if="form.errors[`projects.${index}.technologies`]"
@@ -554,6 +571,7 @@ function submitResume() {
                   v-model="element.startDate"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`projects.${index}.startDate`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`projects.${index}.startDate`] }"
+                  data-cy="project-start-date"
                 />
                 <p
                   v-if="form.errors[`projects.${index}.startDate`]"
@@ -577,6 +595,7 @@ function submitResume() {
                       v-model="element.current"
                       type="checkbox"
                       class="focus:ring-blumilk-500 h-4 w-4 text-blumilk-600 border-gray-300 rounded mr-1"
+                      data-cy="project-in-work-date"
                     >
                     W trakcie
                   </label>
@@ -610,6 +629,7 @@ function submitResume() {
                   rows="5"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`projects.${index}.tasks`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`projects.${index}.tasks`] }"
+                  data-cy="project-tasks"
                 />
                 <p
                   v-if="form.errors[`projects.${index}.tasks`]"
@@ -634,6 +654,7 @@ function submitResume() {
               class="inline-flex justify-center py-2 px-4 ml-3 text-sm font-medium text-white bg-blumilk-600 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
               :class="[form.processing || !form.isDirty ? 'disabled:opacity-60' : 'hover:bg-blumilk-700']"
               :disabled="form.processing || !form.isDirty"
+              data-cy="save-resume"
             >
               Dodaj
             </button>

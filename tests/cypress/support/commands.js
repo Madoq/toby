@@ -24,3 +24,15 @@ Cypress.Commands.add('changeMonthAndDay', (month, day) => {
   cy.changeMonth(month)
   cy.changeDay(day)
 })
+
+Cypress.Commands.add('changeMonthAndDayAndYear', (year, month, day) => {
+  cy.changeYear(year)
+  cy.changeMonth(month)
+  cy.changeDay(day)
+})
+
+Cypress.Commands.add('changeMonthInResume', (month) =>{
+  cy.get('.open > .flatpickr-innerContainer > .flatpickr-rContainer > .flatpickr-monthSelect-months')
+    .contains('span', month)
+    .click()
+})

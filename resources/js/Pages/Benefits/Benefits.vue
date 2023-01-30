@@ -41,6 +41,7 @@ function submitCreateBenefit() {
           type="button"
           class="inline-flex items-center py-3 px-4 text-sm font-medium leading-4 text-white bg-blumilk-600 hover:bg-blumilk-700 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
           @click="creating = true"
+          data-cy="create-benefit"
         >
           Dodaj benefit
         </button>
@@ -75,7 +76,7 @@ function submitCreateBenefit() {
               :key="benefit.id"
               class="hover:bg-blumilk-25"
             >
-              <td class="px-4 py-2 text-sm text-gray-500 whitespace-nowrap">
+              <td class="px-4 py-2 text-sm text-gray-500 whitespace-nowrap" data-cy="benefit-name">
                 {{ benefit.name }}
               </td>
               <td class="px-4 py-2 text-sm text-gray-500 whitespace-nowrap">
@@ -94,6 +95,7 @@ function submitCreateBenefit() {
                 >
                   <MenuButton
                     class="flex items-center text-gray-400 hover:text-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+                    data-cy="benefit-button"
                   >
                     <EllipsisVerticalIcon class="w-5 h-5" />
                   </MenuButton>
@@ -120,6 +122,7 @@ function submitCreateBenefit() {
                             preserve-scroll
                             :href="`/benefits/${benefit.id}`"
                             :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left font-medium px-4 py-2 text-sm']"
+                            data-cy="benefit-delete"
                           >
                             <TrashIcon class="mr-2 w-5 h-5 text-red-500" />
                             Usuń
@@ -209,7 +212,7 @@ function submitCreateBenefit() {
                       type="text"
                       class="block w-full max-w-lg rounded-md shadow-sm sm:text-sm"
                       :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors.name, 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors.name }"
-                    >
+                      >
                     <p
                       v-if="form.errors.name"
                       class="mt-2 text-sm text-red-600"
@@ -255,6 +258,7 @@ function submitCreateBenefit() {
                   class="inline-flex justify-center py-2 px-4 text-base font-medium text-white bg-blumilk-600 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm sm:text-sm"
                   :class="[form.processing || !form.isDirty ? 'disabled:opacity-60' : 'hover:bg-blumilk-700']"
                   :disabled="form.processing || !form.isDirty"
+                  data-cy="save-benefit"
                 >
                   Dodaj
                 </button>

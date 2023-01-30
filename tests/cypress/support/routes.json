@@ -446,6 +446,15 @@
       "HEAD"
     ]
   },
+  "vacation.limits.take": {
+    "name": "vacation.limits.take",
+    "domain": null,
+    "action": "Toby\\Infrastructure\\Http\\Controllers\\VacationLimitController@takeFromLastYear",
+    "uri": "vacation/limits/{limit}/take-from-last-year",
+    "method": [
+      "POST"
+    ]
+  },
   "vacation.timesheet": {
     "name": "vacation.timesheet",
     "domain": null,

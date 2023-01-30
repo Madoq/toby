@@ -1,6 +1,6 @@
 describe('Vacation requests', () => {
 
-    beforeEach(() => {
+    before(() => {
         cy.refreshDatabase()
         cy.seed('DemoSeeder')
 
@@ -37,13 +37,13 @@ describe('Vacation requests', () => {
           .parent()
           .click()
           .should('be.visible')
-          .changeMonthAndDay(10,14)
+          .changeMonthAndDay(11,18)
 
         cy.get('#date_to')
           .parent()
           .click()
           .should('be.visible')
-          .changeMonthAndDay(10,18)
+          .changeMonthAndDay(11,22)
 
         cy.attr('estimated-days-text')
           .should('contain.text', '5')
