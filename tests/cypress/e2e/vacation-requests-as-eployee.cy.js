@@ -37,7 +37,7 @@ describe('Vacation requests', () => {
       .should('contain.text', '5')
 
     cy.get('#comment')
-      .type('Urlopik.')
+      .type('Urlop.')
 
     cy.attr('save-button')
       .click()

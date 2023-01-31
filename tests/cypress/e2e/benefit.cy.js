@@ -23,19 +23,19 @@ describe('Vacation requests', () => {
       .click()
     
     cy.attr('benefit-name')
-      .should('contain.text', 'gym')
+      .should('contain.text', 'Gym')
 
     cy.visit('/assigned-benefits')
 
     cy.attr('grid-employer').eq(0).type(10)
     cy.attr('grid-employee').eq(0).type(10)
-    cy.attr('grid-employer').eq(1).type(21)
-    cy.attr('grid-employee').eq(1).type(21)
-    cy.attr('grid-employer').eq(2).type(37)
+    cy.attr('grid-employer').eq(1).type(11)
+    cy.attr('grid-employee').eq(1).type(11)
+    cy.attr('grid-employer').eq(2).type(27)
 
     cy.attr('grid-sum')
       .eq(0)
-      .should('contain.text', '68')
+      .should('contain.text', '48')
       .wait(2000)
 
     cy.visit('/benefits');
@@ -53,6 +53,6 @@ describe('Vacation requests', () => {
 
     cy.attr('grid-sum')
       .eq(0)
-      .should('contain.text', '58')
+      .should('contain.text', '38')
   });
 });

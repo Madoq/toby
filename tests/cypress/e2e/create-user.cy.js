@@ -17,13 +17,13 @@ describe('Vacation requests', () => {
       .click()
 
     cy.get('#firstName')
-      .type('Karol')
+      .type('Nataniel')
 
     cy.get('#lastName')
-      .type('Wojtyła')
+      .type('Wysocki')
 
     cy.get('#email')
-      .type('KarolW@example.com')
+      .type('NatanielW@example.com')
 
     cy.get('#position')
       .type('Programista')
@@ -35,7 +35,7 @@ describe('Vacation requests', () => {
       .changeMonthAndDayAndYear(2022, 11, 18)
 
     cy.get('#slack')
-      .type('3127')
+      .type('4102')
 
     cy.get('#birthday')
       .parent()
@@ -50,6 +50,6 @@ describe('Vacation requests', () => {
       .should('not.include', '/users/create')
 
     cy.attr('user-name')
-      .contains('Karol Wojtyła')
+      .contains('Nataniel Wysocki')
   });
 });

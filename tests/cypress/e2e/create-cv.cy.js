@@ -27,7 +27,7 @@ describe('Vacation requests', () => {
       .click()
 
     cy.get('#name')
-      .type('Anna Krupa')
+      .type('Jacek Wojciechowski')
 
     cy.attr('add-school')
       .children()
@@ -41,13 +41,13 @@ describe('Vacation requests', () => {
       .click()
 
     cy.attr('school-name')
-      .type('Szkoła im. Jana Pawła II')
+      .type('Technikum nr.5 w legnicy')
 
     cy.attr('school-degree')
-      .type('Niższe')
+      .type('Średnie')
 
     cy.attr('school-fieldofstudy')
-      .type('IT')
+      .type('Informatyka')
 
     cy.attr('school-start-date')
       .siblings()
@@ -116,7 +116,7 @@ describe('Vacation requests', () => {
       .click()
 
     cy.attr('project-text')
-      .type('Anna Krupa')
+      .type('Aplikacja do testowania')
 
     cy.attr('project-technology')
       .type('Golang')
@@ -134,7 +134,7 @@ describe('Vacation requests', () => {
       .check()
 
     cy.attr('project-tasks')
-      .type('Anna Krupa')
+      .type('Robienie testów')
 
     cy.attr('save-resume')
       .click()
@@ -143,6 +143,6 @@ describe('Vacation requests', () => {
       .should('not.include', '/resumes/create')
 
     cy.attr('resume-name')
-      .contains('Anna Krupa')
+      .contains('Jacek Wojciechowski')
   });
 });
