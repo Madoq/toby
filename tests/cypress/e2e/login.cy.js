@@ -1,4 +1,4 @@
-describe('Vacation requests', () => {
+describe('Login', () => {
 
   beforeEach(() => {
     cy.refreshDatabase()
