@@ -4,7 +4,7 @@ describe('Vacation requests', () => {
     cy.refreshDatabase()
     cy.seed('DemoSeeder')
 
-    cy.php (`Toby\\Eloquent\\Models\\User::first();`)
+    cy.php(`Toby\\Eloquent\\Models\\User::first();`)
       .then(user=> {
         cy.login({email: user.email})
       })
