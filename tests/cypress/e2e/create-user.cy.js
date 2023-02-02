@@ -10,7 +10,7 @@ describe('Users', () => {
       })
   })
 
-  it('Creates a user and save it in to database', () => {
+  it('Creates a user', () => {
     cy.visit('/users');
 
     cy.attr('create-user-button')
