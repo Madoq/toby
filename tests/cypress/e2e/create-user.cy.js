@@ -10,7 +10,7 @@ describe('Users', () => {
       })
   })
 
-  it('Creates a sick vacation request by administrator for another employee', () => {
+  it('Creates a user and save it in to database', () => {
     cy.visit('/users');
 
     cy.attr('create-button')

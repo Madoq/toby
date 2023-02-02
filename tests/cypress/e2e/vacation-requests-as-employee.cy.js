@@ -6,7 +6,7 @@ describe('Vacation requests', () => {
     cy.login({ email: 'jolanta.kowak@example.com' })
   })
   
-  it('Creates a sick vacation request by administrator for another employee', () => {
+  it('Creates a vacation request as employee', () => {
     cy.visit('/vacation/requests');
 
     cy.attr('create-vacation-request-button')
@@ -62,13 +62,16 @@ describe('Vacation requests', () => {
 
     cy.attr('vacation-accept-by-technical')
       .click()
-      .wait(3000)
+
+    cy.get('.Vue-Toastification__toast',{timeout:5000})
+      .should('be.visible')
 
     cy.attr('vacation-status')
       .should('contain.text', 'Zaakceptowany przez przełożonego technicznego', 'Czeka na akceptację od przełożonego administracyjnego')
 
     cy.clearCookies()
   });
+
   it('Accept requests by administrator', () => {
     cy.login({ email: 'milosz.borowski@example.com' })
 

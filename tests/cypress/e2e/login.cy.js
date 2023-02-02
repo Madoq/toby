@@ -4,9 +4,9 @@ describe('Login', () => {
     cy.refreshDatabase()
     cy.seed('DemoSeeder')
 
-    cy.php (`Toby\\Eloquent\\Models\\User::first();`)
-      .then(user=> {
-        cy.login({email: user.email})
+    cy.php(`Toby\\Eloquent\\Models\\User::first();`)
+      .then(user => {
+        cy.login({ email: user.email })
       })
   })
 

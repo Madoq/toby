@@ -1,4 +1,4 @@
-describe('Vacation requests', () => {
+describe('Resumes', () => {
 
   beforeEach(() => {
     cy.refreshDatabase()
@@ -10,7 +10,7 @@ describe('Vacation requests', () => {
       })
   })
 
-  it('try to create benefit, add it to a user and check if calculation are correct', () => {
+  it('Create resume for a user from outside the database', () => {
     cy.visit('/resumes');
 
     cy.attr('create-cv')
@@ -41,7 +41,7 @@ describe('Vacation requests', () => {
       .click()
 
     cy.attr('school-name')
-      .type('Technikum nr.5 w legnicy')
+      .type('Technikum nr 5 w Legnicy')
 
     cy.attr('school-degree')
       .type('Średnie')
