@@ -5,6 +5,7 @@ describe('Vacation requests', () => {
     cy.seed('DemoSeeder')
     cy.login({ email: 'jolanta.kowak@example.com' })
   })
+  
   it('Creates a sick vacation request by administrator for another employee', () => {
     cy.visit('/vacation/requests');
 
