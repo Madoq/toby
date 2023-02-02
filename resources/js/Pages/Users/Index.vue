@@ -77,7 +77,7 @@ watch(form, debounce(() => {
         <InertiaLink
           href="users/create"
           class="inline-flex items-center py-3 px-4 text-sm font-medium leading-4 text-center text-white bg-blumilk-600 hover:bg-blumilk-700 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
-          data-cy="create-button"
+          data-cy="create-user-button"
         >
           Dodaj użytkownika
         </InertiaLink>

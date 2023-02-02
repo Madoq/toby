@@ -13,7 +13,7 @@ describe('Users', () => {
   it('Creates a user and save it in to database', () => {
     cy.visit('/users');
 
-    cy.attr('create-button')
+    cy.attr('create-user-button')
       .click()
 
     cy.get('#firstName')
@@ -43,7 +43,7 @@ describe('Users', () => {
       .should('be.visible')
       .changeMonthAndDayAndYear(1990, 4, 18)
 
-    cy.attr('save-button')
+    cy.attr('save-user-button')
       .click()
 
     cy.url()

@@ -54,7 +54,7 @@ describe('Vacation requests', () => {
     cy.attr('flowSkipped')
       .click()
 
-    cy.attr('save-button')
+    cy.attr('save-request-button')
       .click()
 
     cy.url()

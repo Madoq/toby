@@ -460,7 +460,7 @@ async function refreshAvailableTypes(user) {
                 class="inline-flex justify-center py-2 px-4 text-sm font-medium text-white bg-blumilk-600 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
                 :class="[form.processing || !isDirty ? 'disabled:opacity-60' : 'hover:bg-blumilk-700']"
                 :disabled="form.processing || !isDirty"
-                data-cy="save-button"
+                data-cy="save-request-button"
               >
                 Dodaj
               </button>

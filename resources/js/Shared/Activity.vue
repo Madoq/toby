@@ -29,7 +29,7 @@ const statusInfo = computed(() => findStatus(props.activity.state))
       </div>
       <div class="flex flex-1 justify-between pt-1.5 space-x-4 min-w-0">
         <div class="flex flex-col items-start">
-          <div class="text-sm font-medium text-gray-700" data-cy="vacation-status">
+          <div class="text-sm font-medium text-gray-700" data-cy="vacation-request-status">
             {{ statusInfo.text }}
           </div>
           <div class="text-sm font-medium text-right text-gray-400 whitespace-nowrap">

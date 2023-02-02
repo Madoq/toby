@@ -41,7 +41,7 @@ function submitCreateBenefit() {
           type="button"
           class="inline-flex items-center py-3 px-4 text-sm font-medium leading-4 text-white bg-blumilk-600 hover:bg-blumilk-700 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
           @click="creating = true"
-          data-cy="create-benefit"
+          data-cy="create-benefit-button"
         >
           Dodaj benefit
         </button>
@@ -122,7 +122,7 @@ function submitCreateBenefit() {
                             preserve-scroll
                             :href="`/benefits/${benefit.id}`"
                             :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left font-medium px-4 py-2 text-sm']"
-                            data-cy="benefit-delete"
+                            data-cy="benefit-delete-button"
                           >
                             <TrashIcon class="mr-2 w-5 h-5 text-red-500" />
                             Usuń

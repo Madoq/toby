@@ -353,7 +353,7 @@ watch(form, debounce(() => {
             as="tr"
             :href="`/vacation/requests/${request.id}`"
             class="relative hover:bg-blumilk-25 hover:cursor-pointer"
-            data-cy="vacation-request"
+            data-cy="single-vacation-request"
           >
             <td class="p-4 text-sm text-gray-500 whitespace-nowrap">
               <InertiaLink

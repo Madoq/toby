@@ -13,7 +13,7 @@ describe('Benefits', () => {
   it('Create benefit, add it to a user and check if calculation are correct', () => {
     cy.visit('/benefits');
 
-    cy.attr('create-benefit')
+    cy.attr('create-benefit-button')
       .click()
     
     cy.get('#name')
@@ -46,7 +46,7 @@ describe('Benefits', () => {
       .eq(0)
       .click()
 
-    cy.attr('benefit-delete')
+    cy.attr('benefit-delete-button')
       .eq(0)
       .click()
 

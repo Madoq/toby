@@ -40,13 +40,13 @@ describe('Vacation requests', () => {
     cy.get('#comment')
       .type('Urlop.')
 
-    cy.attr('save-button')
+    cy.attr('save-request-button')
       .click()
 
     cy.url()
       .should('not.include', '/vacation/requests/create')
 
-    cy.attr('vacation-status')
+    cy.attr('vacation-request-status')
       .should('contain.text', 'Czeka na akceptację od przełożonego technicznego')
 
     cy.clearCookies()
@@ -57,7 +57,7 @@ describe('Vacation requests', () => {
 
     cy.visit('/vacation/requests');
 
-    cy.attr('vacation-request')
+    cy.attr('single-vacation-request')
       .click()
 
     cy.attr('vacation-accept-by-technical')
@@ -66,7 +66,7 @@ describe('Vacation requests', () => {
     cy.get('.Vue-Toastification__toast',{timeout:5000})
       .should('be.visible')
 
-    cy.attr('vacation-status')
+    cy.attr('vacation-request-status')
       .should('contain.text', 'Zaakceptowany przez przełożonego technicznego', 'Czeka na akceptację od przełożonego administracyjnego')
 
     cy.clearCookies()
@@ -77,13 +77,13 @@ describe('Vacation requests', () => {
 
     cy.visit('/vacation/requests');
 
-    cy.attr('vacation-request')
+    cy.attr('single-vacation-request')
       .click()
 
     cy.attr('vacation-accept-by-administrator')
       .click()
 
-    cy.attr('vacation-status')
+    cy.attr('vacation-request-status')
       .should('contain.text', 'Zaakceptowany przez przełożonego administracyjnego')
   });
 });
