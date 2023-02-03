@@ -53,7 +53,7 @@ describe('Vacation requests', () => {
     cy.clearCookies()
   });
 
-  it('Accept requests by technical', () => {
+  it('Accepts the request by a technical approver', () => {
     cy.login({ email: 'maciej.ziolkowski@example.com' })
 
     cy.visit('/vacation/requests');
