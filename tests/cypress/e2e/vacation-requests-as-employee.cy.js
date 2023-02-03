@@ -6,7 +6,7 @@ describe('Vacation requests', () => {
     cy.login({ email: 'jolanta.kowak@example.com' })
   })
   
-  it('Creates a vacation request as employee', () => {
+  it('Creates a vacation request as an employee', () => {
     cy.visit('/vacation/requests');
 
     cy.attr('create-vacation-request-button')
