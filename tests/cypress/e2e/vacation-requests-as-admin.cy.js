@@ -21,6 +21,7 @@ describe('Vacation requests', () => {
 
     cy.attr('users-listbox-button')
       .click()
+      
     cy.attr('users-list')
       .should('be.visible')
       .contains('Katarzyna Zając')
