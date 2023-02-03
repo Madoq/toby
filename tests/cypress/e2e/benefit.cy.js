@@ -10,7 +10,7 @@ describe('Benefits', () => {
       })
   })
 
-  it('Create benefit, add it to a user and check if calculation are correct', () => {
+  it('Create a benefit, add it to a user and check if the calculation is correct', () => {
     cy.visit('/benefits');
 
     cy.attr('create-benefit-button')
