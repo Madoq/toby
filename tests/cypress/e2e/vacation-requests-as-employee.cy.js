@@ -81,7 +81,7 @@ describe('Vacation requests', () => {
     cy.attr('single-vacation-request')
       .click()
 
-    cy.attr('vacation-accept-by-administrator')
+    cy.attr('vacation-accept-by-administrative-approval')
       .click()
 
     cy.attr('vacation-request-status')
