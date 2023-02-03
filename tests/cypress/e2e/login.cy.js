@@ -1,6 +1,6 @@
 describe('Login', () => {
 
-  beforeEach(() => {
+  before(() => {
     cy.refreshDatabase()
     cy.seed('DemoSeeder')
 
