@@ -10,7 +10,7 @@ describe('Vacation requests', () => {
       })
   })
 
-  it('Creates a sick vacation request by administrator for another employee', () => {
+  it('Creates a sick vacation request by an administrator for another employee', () => {
     cy.visit('/vacation/requests');
 
     cy.attr('create-vacation-request-button')
