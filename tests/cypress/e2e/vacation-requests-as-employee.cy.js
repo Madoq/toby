@@ -17,6 +17,7 @@ describe('Vacation requests', () => {
 
     cy.attr('vacation-types-listbox-button')
       .click()
+      
     cy.attr('vacation-types-list')
       .should('be.visible')
       .contains('Urlop wypoczynkowy')
