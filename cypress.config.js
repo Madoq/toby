@@ -2,6 +2,7 @@ const fs = require('fs')
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
+  projectId: 'fngkrq',
     component: {
         devServer: {
             framework: 'vue',
@@ -10,6 +11,8 @@ module.exports = defineConfig({
     },
 
     e2e: {
+        experimentalRunAllSpecs: true,
+        experimentalStudio: true,
         supportFile: 'tests/cypress/support/index.js',
         baseUrl: 'http://localhost',
         specPattern: 'tests/cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',

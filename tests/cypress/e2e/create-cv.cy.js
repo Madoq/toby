@@ -13,7 +13,7 @@ describe('Resumes', () => {
   it('Create resume for a user from outside the database', () => {
     cy.visit('/resumes');
 
-    cy.attr('create-cv')
+    cy.attr('create-resume-button')
       .click()
 
     cy.url()
