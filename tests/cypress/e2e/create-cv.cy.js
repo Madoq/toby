@@ -121,6 +121,7 @@ describe('Resumes', () => {
     cy.attr('project-technology')
       .type('Golang')
       .type('{enter}')
+      
     cy.attr('project-text')
       .click()
 
