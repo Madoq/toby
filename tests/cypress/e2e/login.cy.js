@@ -10,7 +10,7 @@ describe('Login', () => {
       })
   })
 
-  it('Shows a homepage', () => {
+  it('Shows a homepage for logged user', () => {
     cy.visit('/');
 
     cy.contains('Jan Kowalski');
