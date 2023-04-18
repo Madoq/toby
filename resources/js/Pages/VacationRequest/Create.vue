@@ -380,7 +380,7 @@ async function refreshAvailableTypes(user) {
               <div 
                 class="mt-1 sm:col-span-2 sm:mt-0"
                 dusk='date-to'
-                >
+              >
                 <FlatPickr
                   id="date_to"
                   v-model="form.to"
