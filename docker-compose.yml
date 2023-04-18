@@ -106,6 +106,17 @@ services:
     networks:
       - toby-dev
     restart: unless-stopped
+    
+  cypress:
+    container_name: toby-cypress-test
+    image: "cypress/included:12.7.0"
+    depends_on:
+      - node
+    environment:
+      - CYPRESS_baseUrl=http://toby-web
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
 
 networks:
   toby-dev:
