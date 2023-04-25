@@ -117,6 +117,8 @@ services:
     working_dir: /e2e
     volumes:
       - ./:/e2e
+    networks:
+      - toby-dev
 
 networks:
   toby-dev:
