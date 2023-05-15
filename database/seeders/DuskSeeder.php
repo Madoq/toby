@@ -7,18 +7,15 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Toby\Domain\Enums\EmploymentForm;
 use Toby\Domain\Enums\Role;
 use Toby\Domain\PolishHolidaysRetriever;
-use Toby\Domain\WorkDaysCalculator;
-use Toby\Eloquent\Models\Benefit;
 use Toby\Eloquent\Models\BenefitsReport;
 use Toby\Eloquent\Models\Key;
 use Toby\Eloquent\Models\Technology;
 use Toby\Eloquent\Models\User;
 use Toby\Eloquent\Models\VacationLimit;
-use Toby\Eloquent\Models\VacationRequest;
 use Toby\Eloquent\Models\YearPeriod;
-use Toby\Domain\Enums\EmploymentForm;
 
 class DuskSeeder extends Seeder
 {
@@ -86,7 +83,6 @@ class DuskSeeder extends Seeder
                 ->for($user)
                 ->create();
         }
-
 
         BenefitsReport::factory()->create([
             "name" => "current",

@@ -10,7 +10,7 @@ class AddBenefistPage extends Page
 {
     public function url(): string
     {
-        return '/assigned-benefits';
+        return "/assigned-benefits";
     }
 
     public function assert(Browser $browser): void

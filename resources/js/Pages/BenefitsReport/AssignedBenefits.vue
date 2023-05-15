@@ -303,13 +303,16 @@ function isBenefitHasCompanion(benefitId) {
                 </td>
               </template>
               <td>
-                <div class="w-full sm:text-sm focus:ring-white m-0 text-right p-3" dusk="grid-sum">
+                <div
+                  class="w-full sm:text-sm focus:ring-white m-0 text-right p-3"
+                  dusk="grid-sum"
+                >
                   {{ calculateSumOfBenefits(item.benefits) }}
                 </div>
               </td>
               <td
                 class="px-0.5 ring-inset hover:bg-blumilk-25 focus-within:bg-blumilk-25 ring-blumilk-300 focus-within:ring-2"
-                dusk="emplyer-cost"
+                dusk="employer-cost"
               >
                 <TextArea
                   v-model="item.comment"

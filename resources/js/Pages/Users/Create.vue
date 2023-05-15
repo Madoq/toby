@@ -252,8 +252,9 @@ function createUser() {
         >
           Data zatrudnienia
         </label>
-        <div class="mt-1 sm:col-span-2 sm:mt-0"
-             dusk="employment-date"
+        <div
+          class="mt-1 sm:col-span-2 sm:mt-0"
+          dusk="employment-date"
         >
           <FlatPickr
             id="employment_date"
@@ -299,8 +300,9 @@ function createUser() {
         >
           Data urodzenia
         </label>
-        <div class="mt-1 sm:col-span-2 sm:mt-0"
-             dusk="birthday"
+        <div
+          class="mt-1 sm:col-span-2 sm:mt-0"
+          dusk="birthday"
         >
           <FlatPickr
             id="birthday"

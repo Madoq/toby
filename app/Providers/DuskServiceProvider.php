@@ -1,28 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Toby\Providers;
 
-use Laravel\Dusk\Browser;
 use Illuminate\Support\ServiceProvider;
-use Facebook\WebDriver\WebDriverBy;
+use Laravel\Dusk\Browser;
 
 class DuskServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot(): void
     {
         Browser::macro("fillYear", function ($year) {
@@ -39,9 +25,9 @@ class DuskServiceProvider extends ServiceProvider
             $this->click("div.flatpickr-calendar.animate.arrowTop.arrowLeft.open > div.flatpickr-innerContainer > div > div.flatpickr-days > div > span:nth-child({$day})");
             return $this;
         });
-        
-        Browser::macro("fillGrid", function ($data,$value) {
-            $this->type("tr.group:nth-child(1) > td:nth-child({$data}) > input:nth-child(1)",$value);
+
+        Browser::macro("fillGrid", function ($data, $value) {
+            $this->type("tr.group:nth-child(1) > td:nth-child({$data}) > input:nth-child(1)", $value);
             return $this;
         });
 
@@ -55,15 +41,15 @@ class DuskServiceProvider extends ServiceProvider
             return $this;
         });
 
-        Browser::macro("enterValue", function ($value ,$number,$name) {
+        Browser::macro("enterValue", function ($value, $number, $name) {
             $this->click("#{$value}-{$number}-level")
-            ->keys("#{$value}-{$number}-level",$name, "{enter}");
+                ->keys("#{$value}-{$number}-level", $name, "{enter}");
             return $this;
         });
 
-        Browser::macro("enterProjectTechnology", function ($number,$name) {
+        Browser::macro("enterProjectTechnology", function ($number, $name) {
             $this->click("#project-technologies-{$number}")
-            ->keys("#project-technologies-{$number}",$name, "{enter}");
+                ->keys("#project-technologies-{$number}", $name, "{enter}");
             return $this;
         });
     }

@@ -40,8 +40,8 @@ function submitCreateBenefit() {
         <button
           type="button"
           class="inline-flex items-center py-3 px-4 text-sm font-medium leading-4 text-white bg-blumilk-600 hover:bg-blumilk-700 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
-          @click="creating = true"
           dusk="create-benefit-button"
+          @click="creating = true"
         >
           Dodaj benefit
         </button>

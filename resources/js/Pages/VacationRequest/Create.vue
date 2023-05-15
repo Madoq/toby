@@ -290,7 +290,7 @@ async function refreshAvailableTypes(user) {
                 <ListboxButton
                   class="relative py-2 pr-10 pl-3 w-full max-w-lg text-left bg-white rounded-md border focus:outline-none focus:ring-1 shadow-sm cursor-default sm:text-sm"
                   :class="{ 'border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500': form.errors.type, 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors.type }"
-                  dusk='vacation-types-listbox-button'
+                  dusk="vacation-types-listbox-button"
                 >
                   <template v-if="form.vacationType">
                     <span class="block truncate">
@@ -352,7 +352,7 @@ async function refreshAvailableTypes(user) {
               </label>
               <div 
                 class="mt-1 sm:col-span-2 sm:mt-0"
-                dusk='date-from'
+                dusk="date-from"
               >
                 <FlatPickr
                   id="date_from"
@@ -379,7 +379,7 @@ async function refreshAvailableTypes(user) {
               </label>
               <div 
                 class="mt-1 sm:col-span-2 sm:mt-0"
-                dusk='date-to'
+                dusk="date-to"
               >
                 <FlatPickr
                   id="date_to"

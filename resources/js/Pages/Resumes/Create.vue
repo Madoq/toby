@@ -158,7 +158,8 @@ function submitResume() {
                   <ListboxOptions
                     class="overflow-auto absolute z-10 py-1 mt-1 w-full max-w-lg max-h-60 text-base bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 shadow-lg sm:text-sm"
                   
-                    dusk="users-listbox-list">
+                    dusk="users-listbox-list"
+                  >
                     <ListboxOption
                       v-slot="{ active }"
                       as="template"
@@ -167,7 +168,10 @@ function submitResume() {
                       <li
                         :class="[active ? 'bg-gray-100' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-3 pr-9']"
                       >
-                        <div class="flex items-center" dusk="non-existing-user">
+                        <div
+                          class="flex items-center"
+                          dusk="non-existing-user"
+                        >
                           Nie istnieje w bazie
                         </div>
 
@@ -241,9 +245,9 @@ function submitResume() {
           v-model="form.educations"
           header="Edukacja"
           add-label="Dodaj szkołę"
+          dusk="add-school"
           @add-item="addEducation"
           @remove-item="(index) => form.educations.splice(index, 1)"
-          dusk="add-school"
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('education', index)">
@@ -316,7 +320,10 @@ function submitResume() {
               <label class="block text-sm font-medium text-gray-700 sm:mt-px">
                 Data rozpoczęcia
               </label>
-              <div class="mt-1 sm:mt-0" dusk="school-start-date">
+              <div
+                class="mt-1 sm:mt-0"
+                dusk="school-start-date"
+              >
                 <MonthPicker
                   v-model="element.startDate"
                   class="block w-full rounded-md shadow-sm sm:text-sm"
@@ -335,7 +342,10 @@ function submitResume() {
                 Data zakończenia
               </label>
               <div class="mt-1 sm:mt-0">
-                <div class="space-y-2" dusk="school-end-date">
+                <div
+                  class="space-y-2"
+                  dusk="school-end-date"
+                >
                   <label class="block text-sm font-medium text-gray-700 sm:mt-px">
                     <input
                       v-model="element.current"
@@ -349,7 +359,6 @@ function submitResume() {
                     :disabled="element.current"
                     class="block w-full rounded-md shadow-sm sm:text-sm disabled:bg-gray-100"
                     :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`education.${index}.endDate`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`education.${index}.endDate`] }"
-                    
                   />
                 </div>
                 <p
@@ -366,9 +375,9 @@ function submitResume() {
           v-model="form.languages"
           header="Języki"
           add-label="Dodaj język"
+          dusk="add-language"
           @add-item="addLanguage"
           @remove-item="(index) => form.languages.splice(index, 1)"
-          dusk="add-language"
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('languages', index)">
@@ -431,9 +440,9 @@ function submitResume() {
           v-model="form.technologies"
           header="Technologie"
           add-label="Dodaj technologię"
+          dusk="add-technologies"
           @add-item="addTechnology"
           @remove-item="(index) => form.technologies.splice(index, 1)"
-          dusk="add-technologies"
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('technologies', index)">
@@ -496,9 +505,9 @@ function submitResume() {
           v-model="form.projects"
           header="Projekty"
           add-label="Dodaj projekt"
+          dusk="add-project"
           @add-item="addProject"
           @remove-item="(index) => form.projects.splice(index, 1)"
-          dusk="add-project"
         >
           <template #itemHeader="{ element, index }">
             <template v-if="hasAnyErrorInSection('projects', index)">
@@ -559,7 +568,10 @@ function submitResume() {
               >
                 Data rozpoczęcia
               </label>
-              <div class="mt-1 sm:mt-0" dusk="project-start-date">
+              <div
+                class="mt-1 sm:mt-0"
+                dusk="project-start-date"
+              >
                 <MonthPicker
                   :id="`project-startDate-${index}`"
                   v-model="element.startDate"
