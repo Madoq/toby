@@ -39,6 +39,13 @@ class DuskSeeder extends Seeder
             "email" => env("LOCAL_EMAIL_FOR_LOGIN_VIA_GOOGLE"),
             "role" => Role::Administrator,
         ])
+            ->hasProfile([
+                "first_name" => "Jan",
+                "last_name" => "Kowal",
+                "employment_form" => EmploymentForm::EmploymentContract,
+                "position" => "tester",
+                "employment_date" => Carbon::createFromDate(2021, 5, 10),
+            ])
             ->create();
 
         $users = User::all();
@@ -58,7 +65,9 @@ class DuskSeeder extends Seeder
             )
             ->afterCreating(function (YearPeriod $yearPeriod) use ($users): void {
                 foreach ($users as $user) {
-                    VacationLimit::factory()
+                    VacationLimit::factory([
+                        "days" => $user->profile->employment_form === EmploymentForm::EmploymentContract ? 26 : null,
+                    ])
                         ->for($yearPeriod)
                         ->for($user)
                         ->create();
