@@ -312,7 +312,6 @@ function isBenefitHasCompanion(benefitId) {
               </td>
               <td
                 class="px-0.5 ring-inset hover:bg-blumilk-25 focus-within:bg-blumilk-25 ring-blumilk-300 focus-within:ring-2"
-                dusk="employer-cost"
               >
                 <TextArea
                   v-model="item.comment"
