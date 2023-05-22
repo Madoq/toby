@@ -58,5 +58,21 @@ describe('Benefits', () => {
     cy.attr('grid-sum')
       .eq(0)
       .should('contain.text', '38')
+
+    cy.attr('create-benefit-raport-button')
+      .click()
+
+    cy.get('#name')
+      .type('raport')
+
+    cy.attr('save-benefit-raport-button')
+      .click()
+
+    cy.url()
+      .should('not.include', '/assigned-benefits')
+    
+    cy.attr('choose-benefit-raport-button')
+      .click()
+    
   });
 });

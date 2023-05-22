@@ -105,6 +105,7 @@ function isBenefitHasCompanion(benefitId) {
           class="inline-flex items-center py-3 px-4 text-sm font-medium leading-4 text-white bg-blumilk-600 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
           :class="[form.isDirty ? 'disabled:opacity-60' : 'hover:bg-blumilk-700']"
           :disabled="form.isDirty"
+          data-cy="create-benefit-raport-button"
           @click="startCreatingBenefitsReport"
         >
           Utwórz raport
@@ -304,7 +305,10 @@ function isBenefitHasCompanion(benefitId) {
                 </td>
               </template>
               <td>
-                <div class="w-full sm:text-sm focus:ring-white m-0 text-right p-3" data-cy="grid-sum">
+                <div
+                  class="w-full sm:text-sm focus:ring-white m-0 text-right p-3"
+                  data-cy="grid-sum"
+                >
                   {{ calculateSumOfBenefits(item.benefits) }}
                 </div>
               </td>
@@ -418,6 +422,7 @@ function isBenefitHasCompanion(benefitId) {
                   class="inline-flex justify-center py-2 px-4 text-base font-medium text-white bg-blumilk-600 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm sm:text-sm"
                   :class="[formBenefitsReport.processing ? 'disabled:opacity-60' : 'hover:bg-blumilk-700']"
                   :disabled="formBenefitsReport.processing"
+                  data-cy="save-benefit-raport-button"
                 >
                   Utwórz
                 </button>

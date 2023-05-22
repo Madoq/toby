@@ -99,6 +99,7 @@ watch(() => form.items, () => {
                 v-for="(item, index) in form.items"
                 :key="item.id"
                 class="hover:bg-blumilk-25"
+                data-cy="user-vacation-days"
               >
                 <td class="p-4 text-sm text-gray-500 whitespace-nowrap">
                   <div class="flex">
@@ -125,6 +126,7 @@ watch(() => form.items, () => {
                   <Switch
                     v-model="item.hasVacation"
                     :class="[item.hasVacation ? 'bg-blumilk-500' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blumilk-500']"
+                    data-cy="user-vacation-button"
                   >
                     <span
                       :class="[item.hasVacation ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200']"
@@ -153,6 +155,7 @@ watch(() => form.items, () => {
                       class="block w-full disabled:text-slate-500 disabled:bg-slate-50 rounded-md disabled:border-slate-200 shadow-sm disabled:shadow-none disabled:cursor-not-allowed sm:text-sm"
                       :disabled="!item.hasVacation"
                       :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors[`items.${index}.days`], 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors[`items.${index}.days`] }"
+                      data-cy="user-vacation-days-input"
                     >
                     <p
                       v-if="form.errors[`items.${index}.days`]"
@@ -194,6 +197,7 @@ watch(() => form.items, () => {
             class="inline-flex justify-center py-2 px-4 text-sm font-medium text-white bg-blumilk-600 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
             :class="[form.processing || !form.isDirty ? 'disabled:opacity-60' : 'hover:bg-blumilk-700']"
             :disabled="form.processing || !form.isDirty"
+            data-cy="users-vacation-days-save-button"
           >
             Zapisz
           </button>

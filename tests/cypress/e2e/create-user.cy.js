@@ -11,7 +11,7 @@ describe('Users', () => {
   })
 
   it('Creates a user', () => {
-    cy.visit('/users');
+    cy.visit('/users')
 
     cy.attr('create-user-button')
       .click()
@@ -51,5 +51,62 @@ describe('Users', () => {
 
     cy.attr('user-name')
       .contains('Nataniel Wysocki')
+
+    cy.visit('/vacation/limits')
+
+    cy.attr('user-vacation-button')
+      .click({multiple: true})      
+    
+    cy.attr('user-vacation-days-input')
+      .each(($user)=> {
+        cy.wrap($user).then(($vacationLimitDays) => {
+          if($vacationLimitDays.is(":disabled")){
+            return
+          }
+          else{
+            cy.get($user)
+            .click()
+            .type('10')
+          }
+        })
+      })
+    
+    cy.attr('users-vacation-days-save-button')
+      .click()
+
+    cy.visit('/vacation/requests');
+
+    cy.attr('create-vacation-request-button')
+      .click()
+  
+    cy.url()
+      .should('include', '/vacation/requests/create')
+  
+    cy.attr('users-listbox-button')
+      .click()
+        
+    cy.attr('users-list')
+      .should('be.visible')
+      .contains('Nataniel Wysocki')
+      .click()
+
+
+    cy.get('#date_from')
+    .parent()
+    .click()
+    .should('be.visible')
+    .changeMonthAndDay(11, 27)
+
+    cy.get('#date_to')
+      .parent()
+      .click()
+      .should('be.visible')
+      .changeMonthAndDay(11, 29)
+
+    cy.attr('save-request-button')
+      .click()
+  
+    cy.url()
+      .should('not.include', '/vacation/requests/create')
   });
 });

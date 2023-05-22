@@ -40,8 +40,8 @@ function submitCreateBenefit() {
         <button
           type="button"
           class="inline-flex items-center py-3 px-4 text-sm font-medium leading-4 text-white bg-blumilk-600 hover:bg-blumilk-700 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blumilk-500 focus:ring-offset-2 shadow-sm"
-          @click="creating = true"
           data-cy="create-benefit-button"
+          @click="creating = true"
         >
           Dodaj benefit
         </button>
@@ -76,7 +76,10 @@ function submitCreateBenefit() {
               :key="benefit.id"
               class="hover:bg-blumilk-25"
             >
-              <td class="px-4 py-2 text-sm text-gray-500 whitespace-nowrap" data-cy="benefit-name">
+              <td
+                class="px-4 py-2 text-sm text-gray-500 whitespace-nowrap"
+                data-cy="benefit-name"
+              >
                 {{ benefit.name }}
               </td>
               <td class="px-4 py-2 text-sm text-gray-500 whitespace-nowrap">
@@ -212,7 +215,7 @@ function submitCreateBenefit() {
                       type="text"
                       class="block w-full max-w-lg rounded-md shadow-sm sm:text-sm"
                       :class="{ 'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-500': form.errors.name, 'focus:ring-blumilk-500 focus:border-blumilk-500 sm:text-sm border-gray-300': !form.errors.name }"
-                      >
+                    >
                     <p
                       v-if="form.errors.name"
                       class="mt-2 text-sm text-red-600"

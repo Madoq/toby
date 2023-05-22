@@ -156,6 +156,7 @@ function generateUrl(){
                 :disabled="benefitsReportData.length === 0"
                 :checked="indeterminate || selectedUsers.length === benefitsReportData.length && benefitsReportData.length > 0"
                 :indeterminate="indeterminate"
+                data-cy="choose-benefit-raport-button"
                 @change="selectedUsers = $event.target.checked ? benefitsReportData.map((item) => ( item.user.id )) : []"
               >
               <div class="flex justify-start items-center pl-4">
